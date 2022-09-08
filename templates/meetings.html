@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Meetings</h1>
+
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                Title: {{ meeting.title }} - Time: {{ meeting.time }} - Body: {{ meeting.body }} - Created by: {{ meeting.creator.name }}
+                <a href="/meetings/edit/{{ meeting.id }}">Edit</a>
+                <a href="/meetings/delete/{{ meeting.id }}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/meetings/create">Create New</a>
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Edit Meeting {{ meeting.title }}</h1>
+
+    <form method="POST" action="/meetings/edit/{{ meeting.id }}">
+        <div class="mb-3">
+            <label>Title</label>
+            <textarea required name="title" class="form-control" rows="1">{{ meeting.title }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label>Time</label>
+            <input type="text" required placeholder="time" name="time" value="{{ meeting.time }}"
+                   class="form-control" readonly>
+        </div>
+        <div class="mb-3">
+            <label>Body</label>
+            <textarea required name="body" class="form-control" rows="10">{{ meeting.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>New Meeting</h1>
+
+    <form method="POST" action="/meetings/create">
+        <div class="mb-3">
+            <label>Title</label>
+            <textarea required name="title" class="form-control" rows="1"></textarea>
+        </div>
+        <div class="mb-3">
+            <label>Time</label>
+            <input type="text" required placeholder="time" name="time" value="{{ time }}"
+                   class="form-control" readonly>
+        </div>
+        <div class="mb-3">
+            <label>Body</label>
+            <textarea required name="body" class="form-control" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+{% endblock content %}
